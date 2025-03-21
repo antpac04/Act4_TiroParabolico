@@ -5,6 +5,7 @@ from freegames import vector
 ball = vector(-200, -200)
 speed = vector(0, 0)
 targets = []
+score = 0 # Variable to keep track of score
 
 def tap(x, y):
     "Respond to screen tap."
@@ -30,6 +31,9 @@ def draw():
         goto(ball.x, ball.y)
         dot(6, 'red')
 
+    # Show score keeping
+    print(f"Score: {score}")
+
     update()
 
 def move():
@@ -52,6 +56,9 @@ def move():
     for target in dupe:
         if abs(target - ball) > 13:
             targets.append(target)
+        else: 
+            score += 1
+
 
     draw()
 
